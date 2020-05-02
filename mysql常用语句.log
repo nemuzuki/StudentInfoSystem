@@ -1,0 +1,27 @@
+数据库
+create database <database>;
+drop database <name>;
+
+表
+create table <table>;
+drop table <name>;
+
+增删属性
+alter table <table> add <attr>;
+alter table <table> drop column <attr>;
+
+增删元组
+insert into <table>(attr1,attr2)values(value1,value2);
+delete from <table> where <...>;
+
+索引
+create index <index> on <table>(attrs);
+drop index <index>;
+
+视图
+create view <view> as select <a1,a2,a3> from <table> where <...>;
+create view <view> as 
+  select a.name as username, b.name as goodsname from user as a, goods as b, ug as c 
+  where a.id=c.userid and c.goodsid=b.id;
+drop view <view>;
+
