@@ -1,3 +1,7 @@
+查询
+select <attr> from <table> where <...>;
+//注意字符串用双引号括起，int无需引号！！！
+
 数据库
 create database <database>;
 drop database <name>;
