@@ -20,29 +20,14 @@ echo date("Y-m-d H:i:s");?>
 <body class="background">
 	<div class="center">
 		<h1>学生信息系统</h1>
-		<form action="post.php" method="post">
+		<form action="login.php" method="post">
 			<p>学号<input type="text" name="id"></p>
 
-			<p>姓名<input type="text" name="name"></p>
+			<p>密码<input type="password" name="password"></p>
 			
-			<p>性别<input type="text" name="gender"></p>
-			
-			<p>专业<input type="text" name="major"></p>
-			
-			<button οnclick="window.location.href='post.php'">确认</button>
+			<button οnclick="window.location.href='login.php'">确认</button>
 		<form>
 	</div>
-	<script>
- 
-    var input = document.getElementsByTagName('input')[0];
-    var button = document.getElementsByTagName('button')[0];
- 
-    button.onclick = function () {
-        if(input.value.length != 0) {
-            document.title = input.value;
-        }
-    }
- 
-	</script>
+
 </body>
 </html>

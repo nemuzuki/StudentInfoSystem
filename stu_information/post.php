@@ -9,6 +9,8 @@ $con=mysqli_connect("localhost","root","1798","stu_information");
 //$con=mysqli_connect(host,user,password,database);
 mysqli_query($con,"set names utf8");
 //mysqli_query($con,query);
+
+//sql语句的用法：
 $sqlString="insert into students(id,name,gender,major)values('$id','$name','$gender','$major')";
 $result=mysqli_query($con,$sqlString);
 if($result){
