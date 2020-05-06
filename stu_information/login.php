@@ -1,5 +1,5 @@
 <?php
-//这就是连接串？
+//上接homepage.php
 
 $host="localhost";
 $user="root";
@@ -17,25 +17,22 @@ if($id==null||$password==null){
 
 
 $sql='select * from users where id='."'{$id}'and password="."'$password';";
-$result=mysqli_query($con,$sql);//将获取到的用户名和密码拿到数据库里面去查找匹配
+$result=mysqli_query($con,$sql);//将获取到的用户名和密码拿到数据库的users表里面去查找匹配
 
 if($result instanceof mysqli_result){
 	if(!$result->num_rows){
-		echo "<h1>用户名或密码错误</h1>";
+		echo "<h1>用户名或密码错误(；´д｀)ゞ</h1>";
 	}
 	else{
-		echo "<h1>登录成功，用户&nbsp{$id}</h1>";
-		$sql='select * from scores where student='."'{$id}'";
-		$result=mysqli_query($con,$sql);
-		while($row=$result->fetch_array()){//按行获得sql查询结果的标准语句
-			for($i=0;$i<3;$i++){
-				setcookie('result'."{$i}",$row[$i]);
-			}
-		}
-		$url="testscore.php";
-		setcookie('id',$id);
 		
-		header("Location:$url");
+		$url="station.php";
+		setcookie('id',$id);
+		if($id==1813055){
+			header("location:administrator.php");
+		}
+		else{
+			header("location:$url");
+		}
 	}		
 }
 
@@ -46,7 +43,7 @@ if($result instanceof mysqli_result){
     <meta charset="UTF-8">
     <title>学生信息系统</title>
     <style>
-		.center{text-align:center}
+		.center{text-align:center;}
 		.background{
 			background-image: url(lm7.jpg);
 			background-repeat: repeat;

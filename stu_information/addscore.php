@@ -9,7 +9,7 @@
 			background-image: url(lm7.jpg);
 			background-repeat: repeat;
 		}
-	</style>
+</style>
 </head>
 
 
@@ -18,12 +18,12 @@
 <body class="background">
 	<div class="center">
 		<h1>学生信息系统</h1>
-		<form action="login.php" method="post">
+		<form action="addscore2.php" method="post">
 			<p>学号<input type="text" name="id"></p>
-
-			<p>密码<input type="password" name="password"></p>
+			<p>课号<input type="text" name="course"></p>
+			<p>成绩<input type="text" name="score"></p>
 			
-			<button οnclick="window.location.href='login.php'">确认</button>
+			<button οnclick="window.location.href='addscore2.php'">确认</button>
 		<form>
 	</div>
 

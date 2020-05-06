@@ -17,14 +17,13 @@
 
 <body class="background">
 	<div class="center">
+	<form action="post.php" method="post">
 		<h1>学生信息系统</h1>
-		<form action="login.php" method="post">
-			<p>学号<input type="text" name="id"></p>
 
-			<p>密码<input type="password" name="password"></p>
+		<p>设置新密码<input type="password" name="newpassword"></p>
 			
-			<button οnclick="window.location.href='login.php'">确认</button>
-		<form>
+		<button οnclick="window.location.href='post.php'">确认</button>
+		</form>
 	</div>
 
 </body>

@@ -1,0 +1,90 @@
+create table users(
+	id mediumint,
+	password varchar(50),
+	primary key(id)
+)default charset utf8 collate utf8_general_ci;
+/*
+insert into users(id,password)values(602,"2");
+insert into users(id,password)values(526,"1");
+delete from users where id=1813055;
+*/
+
+create table students(
+	id mediumint,
+	name varchar(50),
+	gender varchar(10),
+	college varchar(50),
+	major varchar(50)
+	primary key(id)
+)default charset utf8 collate utf8_general_ci;
+/*
+insert into students(id,name,gender,college,major)values(630,"李姝","女","医学院","消化");
+alter table students add college varchar(50);
+update students set college="计算机学院" where id=1813055;
+select name from students where major="电子";
+*/
+
+create table courses(
+	id mediumint,
+	name varchar(50),
+	college varchar(50),
+	teacher varchar(20),
+	primary key(id)
+)default charset utf8 collate utf8_general_ci;
+/*
+insert into courses(id,name,college,teacher)values(1813055,"数据库系统","计算机学院","沈玮");
+*/
+
+create table scores(
+	student mediumint references students(id),
+	course mediumint references courses(id),
+	score smallint,
+	primary key(student,course)
+)default charset utf8 collate utf8_general_ci;
+/*
+insert into scores(student,course,score)values(1813055,1446,100);
+*/
+
+
+/*触发器
+//前面必须有空格
+show triggers \G;
+删除：drop <trigger>;
+*/
+delimiter //
+create trigger StuTrig 
+before insert on students for each row 
+begin 
+if new.id not in (select id from users)
+then insert into users(id,password) values(new.id,new.id);
+end if;
+end//
+delimiter ;
+
+delimiter //
+create trigger CourseTrig
+before insert on scores for each row
+begin
+if new.course not in (select id from courses)
+then insert into courses (id)values(new.course);
+end if;
+end//
+delimiter ;
+
+/*存储过程
+查看存储过程：show procedure status \G;
+删除存储过程：drop procedure <procedure>;
+*/
+delimiter //
+create procedure print_procedure(inout printinfo char(50))
+begin
+if(select count(*) from students where gender='男')>3 
+then set printinfo='The number of men students is 4 or more';
+else set printinfo='The number of men students is less than 4';
+end if;
+end;//
+delimiter ;
+--调用存储过程：
+call print_procedure(@a); 
+select @a;
+--@a只是一个临时变量
