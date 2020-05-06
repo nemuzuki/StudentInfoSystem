@@ -32,9 +32,11 @@ create view <view> as
   where a.id=c.userid and c.goodsid=b.id;
 drop view <view>;
 
+
 8.触发器（trigger）
---注意一定要在//前加空格
+注意一定要在//前加空格
 查看所有触发器：show triggers \G;
+删除触发器：drop <trigger>;
 delimiter //
 create trigger StuTrig 
 before insert on students for each row 
@@ -44,3 +46,21 @@ then insert into users(id,password) values(new.id,new.id);
 end if;
 end//
 delimiter ;
+
+
+9.存储过程
+查看存储过程：show procedure status \G;
+删除存储过程：drop procedure <procedure>;
+delimiter //
+create procedure print_procedure(inout printinfo char(50))
+begin
+if(select count(*) from students where gender='男')>3 
+then set printinfo='The number of men students is 4 or more';
+else set printinfo='The number of men students is less than 4';
+end if;
+end;//
+delimiter ;
+--调用存储过程：
+call print_procedure(@a); 
+select @a;
+--@a只是一个临时变量
