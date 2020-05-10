@@ -11,6 +11,7 @@ drop database <name>;
 3.表
 create table <table>;
 drop table <name>;
+show create table <table>; 展示创建table的sql语句
 
 4.增删属性
 alter table <table> add <attr>;
