@@ -65,3 +65,9 @@ delimiter ;
 call print_procedure(@a); 
 select @a;
 --@a只是一个临时变量
+
+10.表的关联
+不用nature join版本：
+select password from `users`,`students` where `users`.`id` = `students`.`id` and `students`.`name`='3rdtsuki';
+# 如果要连接两张表查询，必须在from后面把两张表的名字都写上，否则会报错：  
+ERROR 1054 (42S22): Unknown column 'students.id' in 'where clause'
