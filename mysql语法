@@ -5,13 +5,16 @@ select <attr> from <table> where <...>;
 --注意字符串用双引号括起，int无需引号！！！
 
 2.数据库
+show databases;
+use <database>;
+show tables; 展示整个数据库的表
 create database <database>;
 drop database <name>;
 
 3.表
+show create table <table>; 展示整张table
 create table <table>;
 drop table <name>;
-show create table <table>; 展示创建table的sql语句
 
 4.增删属性
 alter table <table> add <attr>;
