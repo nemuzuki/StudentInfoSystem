@@ -24,10 +24,14 @@
 		<?php
 			echo "<h1>欢迎管理员φ(>ω<*) </h1>";
 		?>
-			 <p><a href="addinfo.php">新建学生信息</a></p>
-			 <p><a href="addscore.php">上传成绩</a></p>
-			 <p><a href="change_pw.php">修改密码</a></p>
-			 <p><a href="homepage.php">退出系统</a></p>
+			<p><a href="showinfo.php">查看所有学生信息</a></p>
+			<p><a href="addinfo.php">新建学生信息</a></p>
+			<p><a href="deleteinfo.php">删除学生信息</a></p>
+			<p><a href="showcourses.php">查看所有课程信息</a></p>
+			<p><a href="addcourse.php">添加课程</a></p>
+			<p><a href="addscore.php">上传成绩</a></p>
+			<p><a href="change_pw.php">修改密码</a></p>
+			<p><a href="homepage.php">退出系统</a></p>
 	</div>
 
 </body>

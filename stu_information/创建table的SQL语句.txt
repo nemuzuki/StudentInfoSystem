@@ -88,3 +88,9 @@ delimiter ;
 call print_procedure(@a); 
 select @a;
 --@a只是一个临时变量
+
+
+--左关联：返回左表数据
+select * from users a left join students b on a.id=b.id;
+--右关联：返回右表数据
+select * from users a right join students b on a.id=b.id;
