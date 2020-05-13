@@ -1,4 +1,6 @@
 --注释/*注释*/
+0.关键字
+as：重命名
 
 1.查询
 select <attr> from <table> where <...>;
@@ -31,9 +33,16 @@ drop index <index>;
 
 7.视图（view）
 create view <view> as select <a1,a2,a3> from <table> where <...>;
+--例如：
 create view <view> as 
   select a.name as username, b.name as goodsname from user as a, goods as b, ug as c 
   where a.id=c.userid and c.goodsid=b.id;
+  --这是对user,goods,ug重命名为a,b,c，a.name,b.name重命名为username,goodsname，
+  最后视图展示出来是<view>(username,goodsname)
+  where语句后面一定要认真对待！这是关联表的关键之处
+  
+select * from <view>; 展示整张视图
+desc <view>; 查看视图所有属性的类型
 drop view <view>;
 
 
