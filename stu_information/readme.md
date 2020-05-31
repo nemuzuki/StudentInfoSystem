@@ -21,9 +21,9 @@ showregist：选课信息
 ```
 users(id,password)：用户学号，密码
 students(id,name,gender,college,major)：学生信息
-course(id,name,college,teacher,credit(学分),stu_num(选课人数))：课
+course(id,name,college,teacher,credit(学分),stu_num(选课人数))：课程信息
 scores(student,course,score)：所有人所有课的分数
-regist(student,course)
+regist(student,course)：选课信息
 ```
 ### 事务删除（存储引擎必须是InnoDB）：（delete_student）
 
