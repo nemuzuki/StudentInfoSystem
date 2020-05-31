@@ -13,37 +13,38 @@
 </head>
 <body class="background">
 	<h1 align="center">
-		所有课程信息
+		学生成绩
 	</h1>
 
 	<table border="1" cellspacing="0" align="center"><!--表格边框-->
 		<tr>
+			<td>学号</td>
+			<td>姓名</td>
 			<td>课号</td>
 			<td>课名</td>
-			<td>学院</td>
-			<td>教师</td>
 			<td>学分</td>
-			<td>人数</td>
+			<td>成绩</td>
 		</tr>
 		<?php
 			
 			$con=mysqli_connect("localhost","root","1798","stu_information");
 			mysqli_query($con,"set names utf8");
-			$sql='select * from courses';
+			$course_id=$_POST['course_id'];
+			$sql='select * from stu_score where course_id='."'{$course_id}'".';';
 			$result=mysqli_query($con,$sql);
 			$num=$result->num_rows;
 			//循环打印
 			for($i=0;$i<$num;$i++){
 				$row=$result->fetch_array();
-				//在html展示可以采用html嵌套php的方法
+				// student,courseid,score给每门课做一张视图吧！！！
 				echo
 				'<tr>
 				<td>'."{$row[0]}".'</td>
 				<td>'."{$row[1]}".'</td>
 				<td>'."{$row[2]}".'</td>
 				<td>'."{$row[3]}".'</td>
-				<td>'."{$row[5]}".'</td>
 				<td>'."{$row[4]}".'</td>
+				<td>'."{$row[5]}".'</td>
 				</tr>';
 			}
 		?>

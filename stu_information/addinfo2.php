@@ -9,13 +9,20 @@ $major=$_POST['major'];
 $con=mysqli_connect("localhost","root","1798","stu_information");
 mysqli_query($con,"set names utf8");
 
-//sql语句的用法：字符串必须用双引号+单引号+大括号的形式
+
 $sql="insert into students(id,name,gender,college,major)
 values({$id},"."'{$name}',"."'{$gender}',"."'{$college}',"."'{$major}');";
-$result=mysqli_query($con,$sql);
-if($result){
-	echo "<script>alert('添加成功')</script>";
+
+try{
+	if(!$id){
+		echo "<script>alert('id不能为空!')</script>";
+		die;
+	}
+	$result=mysqli_query($con,$sql);
+	if(!$result)throw new Exception(mysqli_error($con));
+	else echo "<script>alert('添加学生信息成功！')</script>";
 }
-else{
-	echo "<script>alert('添加失败')</script>";
+
+catch(Exception $e){
+	echo "<script>alert("."'{$e->getMessage()}'".")</script>";
 }

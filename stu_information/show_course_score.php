@@ -21,15 +21,12 @@
 
 <body class="background">
 	<div class="center">
-		<?php
-			$id=$_COOKIE['id'];
-			echo "<h1>登录成功，用户&nbsp{$id}(*/ω＼*)</h1>";
-		?>
-			<p><a href="registcourse.php">选课退课</a></p>
-			<p><a href="testscore.php">成绩查询</a></p>
-			<p><a href="change_pw.php">修改密码</a></p>
-			<p><a href="homepage.php">退出系统</a></p>
-	</div>
+		<form action="show_course_score2.php" method="post">
 
+			<p>要查询的课号<input type="text" name="course_id"></p>
+			
+			<button οnclick="window.location.href='show_course_score2.php'">确认</button>
+		<form>
+	</div>
 </body>
 </html>
