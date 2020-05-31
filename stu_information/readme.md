@@ -1,4 +1,5 @@
 ### php:
+```
 homepage：主页，选择教师或者学生
 login：登录
 station：登录后的中转站（学生用）
@@ -12,21 +13,18 @@ showinfo：展示所有学生信息
 addcourse：添加课程
 showcourses：展示所有课程信息
 show_user_score：展示某个学生的所有成绩（还需要增加修改功能）
-
 show_course_score:查看某门课程成绩
-
 registcourse:选课
-
 showregist：选课信息
-
+```
 ### table：
+```
 users(id,password)：用户学号，密码
 students(id,name,gender,college,major)：学生信息
 course(id,name,college,teacher,credit(学分),stu_num(选课人数))：课
 scores(student,course,score)：所有人所有课的分数
-
 regist(student,course)
-
+```
 ### 事务删除（存储引擎必须是InnoDB）：（delete_student）
 
 事务用来处理一系列的修改操作语句，满足原子性、一致性、隔离性、持久性。
