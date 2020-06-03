@@ -1,4 +1,4 @@
-今天我们谈谈两张表通过join的连接。
+#### 今天我们谈谈两张表通过join的连接。
 
 left join的效果是返回的表项数=左表，如果左表的某些项不在右表，那么对应右表的属性为NULL。
 
@@ -6,7 +6,29 @@ nature join则是求交集，不需要等号连接，属性名字相同的自动
 
 nature left join可以将重复的属性去重，左表的该属性留下，右表删去。
 
+```mysql
+初始表：
+
+ select * from tableone;
++------+------+
+| id   | name |
++------+------+
+|    1 | aaa  |
+|    2 | bbb  |
++------+------+
+
+select * from tabletwo;
++------+--------+
+| id   | gender |
++------+--------+
+|    3 | male   |
+|    2 | female |
++------+--------+
 ```
+
+
+
+```mysql
 select * from tableone left join tabletwo on tableone.id=tabletwo.id;
 +------+------+------+--------+
 | id   | name | id   | gender |
