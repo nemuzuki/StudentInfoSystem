@@ -103,6 +103,7 @@ create view <view> as
 
 
 ### 8.触发器（trigger）
+触发器是在某个动作发生之前/之后伴随的一系列动作
 
 注意if后面的操作要写then！！！
 
@@ -127,7 +128,7 @@ delimiter ;
 
 
 ### 9.存储过程（procedure）
-
+存储过程相当于把许多动作打包，使用更加方便
 ```mysql
 查看存储过程：show procedure status \G;
 删除存储过程：drop procedure <procedure>;
