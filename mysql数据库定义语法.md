@@ -13,7 +13,6 @@ select <attr> from <table> where <...>;
 ```mysql
 show databases;
 use <database>;
-show tables; 展示整个数据库的表
 create database <database>;
 drop database <name>;
 ```
@@ -23,6 +22,7 @@ drop database <name>;
 ### 3.表
 
 ```mysql
+show tables; 展示整个数据库的表
 show create table <table>; 展示整张table
 create table <table>;
 drop table <name>;
