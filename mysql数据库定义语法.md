@@ -25,7 +25,11 @@ drop database <name>;
 ```mysql
 show tables; 展示整个数据库的表
 show create table <table>; 展示整张table
-create table <table>;
+create table <table>
+(
+LastName varchar(255),
+FirstName varchar(255)
+);
 drop table <name>;
 ```
 
