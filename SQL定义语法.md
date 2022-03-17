@@ -107,14 +107,14 @@ drop index <index> on <table>;
 
 ### 7.视图（view）
 
-```mysql
+```sql
 create view <view> as select <a1,a2,a3> from <table> where <...>;
 select * from <view>;# 展示整张视图
 desc <view>;# 查看视图所有属性的类型
 drop view <view>;
 ```
 
-```mysql
+```sql
 例如：
 create view <view> as 
   select a.name as username, b.name as goodsname from user as a, goods as b, ug as c 
@@ -136,7 +136,7 @@ create view <view> as
 
 注意一定要在delimiter和//之间加空格！！！
 
-```mysql
+```sql
 查看所有触发器：show triggers \G;
 删除触发器：drop trigger <trigger>;
 delimiter //
@@ -158,7 +158,7 @@ delimiter ;
 
 存储过程相当于把许多动作打包，使用更加方便
 
-```mysql
+```sql
 查看存储过程：show procedure status \G;
 删除存储过程：drop procedure <procedure>;
 建立存储过程：
