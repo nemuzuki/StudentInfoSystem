@@ -13,8 +13,10 @@ try{
 		echo "<script>alert('ID不能为空!')</script>";
 		die;
 	}
-	$result=mysqli_query($db,$sql);
-	else echo "<script>alert('添加学生信息成功！')</script>";
+	else{
+		$result=mysqli_query($db,$sql);
+		echo "<script>alert('添加学生信息成功！')</script>";
+	}
 }
 
 catch(Exception $e){

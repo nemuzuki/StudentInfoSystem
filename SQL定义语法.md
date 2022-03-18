@@ -140,11 +140,11 @@ create view <view> as
 查看所有触发器：show triggers \G;
 删除触发器：drop trigger <trigger>;
 delimiter //
-create trigger StuTrig 
-before insert on students for each row 
+create trigger addUserTrigger 
+before insert on student for each row 
 begin 
-	if new.id not in (select id from users)
-		then insert into users(id,password) values(new.id,new.id);
+	if new.id not in (select id from user)
+		then insert into user(id,password) values(new.id,new.id);
 	else 
 		signal sqlstate '42000' set message_text='已经存在此用户！';
 end if;
@@ -176,3 +176,6 @@ delimiter ;
 call print_procedure(@a); 
 select @a; @a是一个临时变量
 ```
+
+### 10.事务
+

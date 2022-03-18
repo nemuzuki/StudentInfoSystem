@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./table.css">
 </head>
 <body class="background">
+	<h1>学生信息</h1>
 	<table>
 		<tr>
     		<td>学号</td>

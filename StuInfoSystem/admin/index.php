@@ -16,7 +16,7 @@
         当前用户：
 		<?php 
 		session_start();
-		echo $_SESSION["admin"]
+		echo $_SESSION["user"]
 		?>
     </div>
 </div>

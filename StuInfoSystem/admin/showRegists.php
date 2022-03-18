@@ -8,24 +8,26 @@
 </head>
 
 <body class="background">
-
+	<h1>选课信息</h1>
 	<table>
 		<tr>
 			<td>学号</td>
+			<td>姓名</td>
 			<td>课号</td>
+			<td>课名</td>
 		</tr>
 		<?php
 			require_once('../config/database.php');
 			mysqli_query($db,"set names utf8");
-			$sql='SELECT * FROM regist';
+			$sql='SELECT * FROM registInfo';
 			$result=mysqli_query($db,$sql);
 			$num=$result->num_rows;
-			//循环打印
-			for($i=0;$i<$num;$i++){
-				$row=$result->fetch_array();
+			while($row=mysqli_fetch_object($result)){
 				?>
-					<td><?php echo $row->student ?></td>
-					<td><?php echo $row->course ?></td>
+					<td><?php echo $row->student_id ?></td>
+					<td><?php echo $row->student_name ?></td>
+					<td><?php echo $row->course_id ?></td>
+					<td><?php echo $row->course_name ?></td>
 				<?php
 			}
 		?>

@@ -11,7 +11,7 @@
 	<div class="center">
 		<h1>删除学生信息</h1>
 		<form action="deleteStudent2.php" method="post">
-            <div class="inputbox"><span>学号</span><input name="id" required type="text"></div>
+            <div class="inputbox"><span>学号</span><input name="student_id" required type="text"></div>
 			<div class="clickbox clearfloat"><span></span><input name="submit" type="submit" value="提交"></div>
 		<form>
 	</div>

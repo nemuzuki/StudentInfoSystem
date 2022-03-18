@@ -30,8 +30,7 @@ print <<<END
 		</div>
 		<div class="subtitle">用户登录</div>
 		<form action="./login.php" method="post">
-			<!-- required代表必填 -->
-            <div class="inputbox"><span>学号</span><input name="id" required type="text"></div>
+            <div class="inputbox"><span>账号</span><input name="id" required type="text"></div>
 			<div class="inputbox"><span>密码</span><input name="passwd" required type="password"></div>
 			
             <div class="submitbox"><input name="submit" type="submit" value="确认"></div>

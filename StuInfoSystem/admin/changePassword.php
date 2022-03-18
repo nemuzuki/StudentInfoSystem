@@ -9,7 +9,7 @@
 <body class="background">
 	<div class="center">
 	<form action="changePassword2.php" method="post">
-		<h1>学生信息系统</h1>
+		<h1>修改密码</h1>
             <div class="inputbox"><span>设置新密码</span><input name="newpassword" required type="password"></div>
 			<div class="clickbox clearfloat"><span></span><input name="submit" type="submit" value="提交"></div>
 		</form>
