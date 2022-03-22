@@ -1,10 +1,10 @@
-create table user(
+CREATE table user(
 	id mediumint references student(id),
 	password varchar(50),
 	primary key(id)
 )default charset utf8 collate utf8_general_ci;
 
-create table student(
+CREATE table student(
 	id mediumint,
 	name varchar(50),
 	gender varchar(10),
@@ -13,7 +13,7 @@ create table student(
 	primary key(id)
 )default charset utf8 collate utf8_general_ci;
 
-create table course(
+CREATE table course(
 	id mediumint,
 	name varchar(50),
 	college varchar(50),
@@ -21,7 +21,7 @@ create table course(
 	primary key(id)
 )default charset utf8 collate utf8_general_ci;
 
-create table score(
+CREATE table score(
 	student mediumint references student(id),
 	course mediumint references course(id),
 	score smallint,
@@ -29,7 +29,7 @@ create table score(
 )default charset utf8 collate utf8_general_ci;
 
 -- 选课
-create table regist(
+CREATE table regist(
 	student mediumint references student(id),
     course mediumint references course(id),
     primary key(student,course)
@@ -37,34 +37,36 @@ create table regist(
 
 --触发器：一旦新建学生信息，同时也增加user行
 delimiter //
-create trigger addUserTrigger 
-before insert on student for each row 
-begin 
-	if new.id not in (select id from user)
-		then insert into user(id,password) values(new.id,new.id);
-	else 
-		signal sqlstate '42000' set message_text='已经存在此用户！';
-end if;
-end//
+CREATE TRIGGER addUserTrigger 
+BEFORE INSERT ON student
+FOR EACH ROW 
+BEGIN 
+	IF new.id NOT IN (SELECT id FROM user)
+		THEN INSERT INTO user(id,password) VALUES(new.id,new.id);
+	ELSE 
+		signal sqlstate '42000' SET message_text='已经存在此用户！';
+END IF;
+END;//
 delimiter ;
 
---存储过程：删除学生信息时，删除user和score行
+--存储过程：修改密码
 delimiter //
-create procedure delete_student(in student_id mediumint)
-begin
-	delete from student where id=student_id;
-	delete from user where id=student_id;
-	delete from score where student=student_id;
-end;//
+CREATE PROCEDURE changePasswd(IN studentid mediumint,IN newpassword varchar(50))
+BEGIN
+	UPDATE user SET password = newpassword where id = studentid;
+END;//
 delimiter ;
 
---事务：修改密码事务执行失败则回滚
+--事务：删除学生信息时，删除user和score行。见deleteStudent2.php
+DELETE FROM student WHERE id=student_id;
+DELETE FROM user WHERE id=student_id;
+DELETE FROM score WHERE student=student_id;
 
 --视图：显示所有选课信息
-create view registInfo as 
-  SELECT s.id as student_id, s.name as student_name, c.id as course_id, c.name as course_name
-  from regist r, student s, course c
-  where r.student=s.id and r.course=c.id;
+CREATE view registInfo AS 
+	SELECT s.id AS student_id, s.name AS student_name, c.id AS course_id, c.name AS course_name
+	FROM regist r, student s, course c
+	WHERE r.student=s.id AND r.course=c.id;
 
 
 

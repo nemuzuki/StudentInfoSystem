@@ -12,9 +12,9 @@ mysqli_query($db,"set names utf8");
 $sql="INSERT INTO course(id,name,college,teacher)VALUES('$id','$name','$college','$teacher');";
 $result=mysqli_query($db,$sql);
 if($result){
-	echo "<script>alert('添加课程成功'); parent.location.href='./index.php';</script>";
+	echo "<script>alert('添加课程成功');window.location.href='addCourse.php';</script>";
 }
 else{
-	echo "<script>alert('添加课程失败') parent.location.href='./index.php';</script>";
+	echo "<script>alert('添加课程失败');window.location.href='addCourse.php';</script>";
 }
 ?>

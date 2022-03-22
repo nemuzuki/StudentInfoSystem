@@ -2,15 +2,8 @@
     margin: 0;
 }
 body{
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     min-height: 100vh;
     margin: 0;
-}
-.background{
-    background: url(../source/Elaina.jpg);
-    opacity: 0.5;
 }
 .topnav{
     background-color: #70a0d0;

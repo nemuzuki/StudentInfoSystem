@@ -3,12 +3,7 @@ if (isset($_SESSION['user'])){
 	session_destroy();//销毁之前的会话
 }
 session_start();//建立会话
-if(isset($_GET["retry"])){
-    $wrong='<div class="inputbox">
-                <span style="color:#df3a01;font-size:10px;margin:10px;display:block">用户名或密码错误</span>
-            </div>';
-}
-print <<<END
+?>
 	
 <!DOCTYPE html>
 <html>
@@ -17,9 +12,6 @@ print <<<END
 	<meta name="viewport" content="width=device-width, height=device-height, inital-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" media="all" href="./login.css" />
     <title>学生信息系统</title>
-    <style>
-		.center{text-align:center;}
-	</style>
 </head>
 
 
@@ -38,8 +30,3 @@ print <<<END
 	</div>
 </body>
 </html>
-END;
-
-exit();
-
-?>
